@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <title>Test report</title>
+    <script src="rex-scores-submit.js"></script>
+    <link rel="stylesheet" type="text/css" href="rex-scores-submit.css" />
+</head>
+<body>
+    
+    <div class="journal">
+        <h3>Your journal's match is <span>95%</span></h3>
+        <div id="journal-match-score">
+            <form class="journal-match-score">
+                <input name="submission-id" value="abcdef" type="hidden" />
+                <input name="journal-id" value="00000" type="hidden" />
+                <button name="score" type="submit" value="1">1</button>
+                <button name="score" type="submit" value="2">2</button>
+                <button name="score" type="submit" value="3">3</button>
+                <button name="score" type="submit" value="4">4</button>
+                <button name="score" type="submit" value="5">5</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="journal">
+        <h3>Journal 11111</h3>
+        <div class="secondary-journal-vote">
+            <form class="secondary-journal-score">
+                <input name="submission-id" value="abcdef" type="hidden" />
+                <input name="submitted-to-journal-id" value="00000" type="hidden" />
+                <input name="recommended-journal-id" value="11111" type="hidden" />
+                <input name="result-rank" value="1" type="hidden" />
+                <button name="score" type="submit" value="no">👎</button>
+                <button name="score" type="submit" value="yes">👍</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="journal secondary-journal" >
+        <h3>Journal 22222</h3>
+        <div class="secondary-journal-vote"></div>
+        <form class="secondary-journal-score">
+            <input name="submission-id" value="abcdef" type="hidden" />
+            <input name="submitted-to-journal-id" value="00000" type="hidden" />
+            <input name="recommended-journal-id" value="22222" type="hidden" />
+            <input name="result-rank" value="2" type="hidden" />
+            <button name="score" type="submit" value="no">👎</button>
+            <button name="score" type="submit" value="yes">👍</button>
+        </form>
+    </div>
+
+    <div class="journal secondary-journal">
+        <h3>Journal 33333</h3>
+        <div class="secondary-journal-vote"></div>
+        <form class="secondary-journal-score">
+            <input name="submission-id" value="abcdef" type="hidden" />
+            <input name="submitted-to-journal-id" value="00000" type="hidden" />
+            <input name="recommended-journal-id" value="33333" type="hidden" />
+            <input name="result-rank" value="3" type="hidden" />
+            <button name="score" type="submit" value="no">👎</button>
+            <button name="score" type="submit" value="yes">👍</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
