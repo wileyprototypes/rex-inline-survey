@@ -2,8 +2,72 @@
 <html>
 <head>
     <title>Test report</title>
-    <script src="rex-scores-submit.js"></script>
-    <link rel="stylesheet" type="text/css" href="rex-scores-submit.css" />
+    <script>document.addEventListener('DOMContentLoaded', sendJournalMatchScores);
+
+        function sendJournalMatchScores(){  
+            registerJournalMatchForms(document.querySelectorAll('form.journal-match-score, form.secondary-journal-score'));
+        }
+        
+        
+        function registerJournalMatchForms(nodeList){
+                nodeList.forEach(function(node){
+                    node.addEventListener('submit', function (event) {
+                        let formMethod="POST";
+                        let activeForm = this;
+                        if(this.classList.contains("journal-match-score")){
+                            formAction="https://script.google.com/macros/s/AKfycbxkbhm40Cyx0n4pxAV9t-hay8R096iyc0YS72t-YeMN9cKHYGwl0_KDctCF_I-SgJ4i/exec";
+                        }
+                        if(this.classList.contains("secondary-journal-score")){
+                            formAction="https://script.google.com/macros/s/AKfycbzmqF5xuoM92NItLfuZXPush-yYZak66H_7zMPqNbmNs7quagxQL-PQJ_3JRvWASxXG/exec";
+                        }
+                        let formBody = new FormData(activeForm);
+                        let score = event.submitter ? event.submitter.value : "error";
+                        formBody.append("score", score);
+                        formBody.append("Date", new Date());
+                        activeForm.innerHTML="Recording...";
+                
+                        fetch(formAction, {
+                          method: formMethod,
+                          body: formBody
+                        }).then(
+                            res=>res.text())
+                          .then(function () {
+                            activeForm.innerHTML="Thank you for your response";
+                         });
+                
+                        event.preventDefault();
+                    });
+        
+                });
+        }
+        </script>
+    
+    <style>
+        .journal{
+            background:#eaeaea;
+            border: 1px solid rgba(0,0,0,0.25);
+            width:800px;
+            padding:40px;
+            margin:40px;
+        }
+        h3 span{
+            color:#b92d80;
+        }
+        h3{
+            font-family:'Open Sans', sans-serif;
+            font-size:24px;
+            margin-bottom:20px;
+            margin-top:0;
+        }
+        form.pending{
+            opacity: 0.5;
+        }
+        .journal button{
+            font-size:24px;
+            padding:10px;
+            border:1px solid rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
     
